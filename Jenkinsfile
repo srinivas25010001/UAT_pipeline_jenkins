@@ -5,7 +5,7 @@ pipeline {
         HARBOR_CREDENTIALS = 'harbor-creds'
         IMAGE_NAME = '10.212.133.28/demo/test:latest'
         GITHUB_CREDENTIALS = 'github-creds'
-        //FRAPPE_DOCKER_PATH = 'frappe_docker'
+        FRAPPE_DOCKER_PATH = 'frappe_docker'
     }
 
     stages {
@@ -15,13 +15,6 @@ pipeline {
             }
         }
 		
-		stage('Clone frappe_docker') {
-            steps {
-                sh 'rm -rf frappe_docker || true'
-                sh 'git clone https://github.com/frappe/frappe_docker'
-            }
-        }
-
         stage('Create apps.json') {
             steps {
                 script {
@@ -66,7 +59,7 @@ pipeline {
     steps {
         script {
             def appsJsonBase64 = sh(script: "cat apps.json.b64", returnStdout: true).trim()
-            dir('frappe_docker') {
+            dir("${FRAPPE_DOCKER_PATH}") {
                 sh """
                     docker build \
                       --build-arg HTTP_PROXY=http://192.0.2.12:8080 \
