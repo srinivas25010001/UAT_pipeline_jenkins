@@ -6,6 +6,9 @@ pipeline {
         IMAGE_NAME = '10.212.133.28/demo/test:latest'
         GITHUB_CREDENTIALS = 'github-creds'
         FRAPPE_DOCKER_PATH = 'frappe_docker'
+	HTTP_PROXY = 'http://192.0.2.12:8080'
+        HTTPS_PROXY = 'http://192.0.2.12:8080'
+        NO_PROXY = 'localhost,127.0.0.1,192.0.2.50'    
     }
 
     stages {
