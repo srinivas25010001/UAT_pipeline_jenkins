@@ -65,6 +65,7 @@ pipeline {
             dir("${FRAPPE_DOCKER_PATH}") {
                 sh """
                     docker build \
+		      --no-cache \
                       --build-arg HTTP_PROXY=http://192.0.2.12:8080 \
                       --build-arg HTTPS_PROXY=http://192.0.2.12:8080 \
                       --build-arg NO_PROXY=192.0.2.50:8081 \
