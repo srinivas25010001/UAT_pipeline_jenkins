@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         HARBOR_CREDENTIALS = 'harbor-creds'
-        IMAGE_NAME = '10.212.133.28/demo/test:latest'
+        IMAGE_NAME = '10.212.133.28/demo/test2:latest'
         GITHUB_CREDENTIALS = 'github-creds'
         FRAPPE_DOCKER_PATH = 'frappe_docker'
 	HTTP_PROXY = 'http://192.0.2.12:8080'
