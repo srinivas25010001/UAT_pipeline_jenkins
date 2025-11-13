@@ -95,7 +95,7 @@ pipeline {
             echo "Build or push failed."
         }
         always {
-            // Clean up local image
+            // Clean up local image and update
             sh "docker rmi ${IMAGE_NAME} || true"
 	    sh "docker builder prune -f"	
         }
